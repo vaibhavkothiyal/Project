@@ -1,4 +1,4 @@
-import { ADD_USER,ADD_DATA,DEL_USER,HANDLE_CURRENT_SEL,ADD_TOKEN } from "./actions";
+import { ADD_USER,ADD_DATA,DEL_USER,HANDLE_CURRENT_SEL,ADD_TOKEN,FILTER_BY_COMPANY } from "./actions";
 
 export const addUser=(data)=>{
     return {

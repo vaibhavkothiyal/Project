@@ -3,7 +3,7 @@ import './Ui.css'
 import { MdDelete, MdOutlineCancel } from 'react-icons/md';
 import { AiOutlinePlus } from 'react-icons/ai';
 import { useDispatch, useSelector } from 'react-redux';
-import { addUser, addData, delUser, handleCurrentSel, addToken } from '../../features/actionsTypes';
+import { addUser, addData, delUser, handleCurrentSel, addToken, filterByCompany } from '../../features/actionsTypes';
 import { Link } from 'react-router-dom';
 
 const msgDiv = {
@@ -93,33 +93,51 @@ export const Ui = () => {
         Dispatch(addData(usersData))
     }
 
-    const handleCompanyFilter = (key) => {
-        Dispatch(handleCurrentSel(key))
-        let selectedComp = []
-        if (currentSelection.size == 0) selectedComp = temp;
-        else {
-            for (let key of currentSelection) {
-                if (key == "All") {
-                    selectedComp = temp;
-                    break;
-                } else {
-                    temp.map((el) => {
-                        if (el.company == key) selectedComp.push(el)
-                    })
-                }
-            }
-        }
-        Dispatch(addData(selectedComp))
-
-    }
-
     const handleLogout = () => {
         Dispatch(addToken(null))
     }
 
+    const [toggleSelCompany, setToggleSelCompany] = useState(false)
+    const handleCompanyFilter = (key) => {
+        if (key == "All") {
+            console.log("yahan kuukukuku", toggleSelCompany);
+            let key = 'All'
+            Dispatch(handleCurrentSel({ key, temp }))
+            let inputs = document.getElementsByClassName('companyFilter');
+            if (toggleSelCompany) {
+                key = "reset"
+                console.log("yahan if mai", key)
+                Dispatch(handleCurrentSel({ key, temp }))
+                for (var i = 0; i < 4; i++) {
+                    if (inputs[i].type == 'checkbox') {
+                        inputs[i].checked = false;
+                    }
+                }
+            } else {
+                key = "selAll"
+                console.log("yahan else mai", key)
+                Dispatch(handleCurrentSel({ key, temp }))
+                for (var i = 0; i < 4; i++) {
+                    if (inputs[i].type == 'checkbox') {
+                        inputs[i].checked = true;
+                    }
+                }
+            }
+        }else{
+            let inputs = document.getElementsByClassName('optionAll');
+            inputs[0].checked = false;
+            Dispatch(handleCurrentSel({key,temp}))
+        }
+        setToggleSelCompany(!toggleSelCompany)
+
+    }
+    console.log(currentSelection)
+
     useEffect(() => {
         getUsersData()
     }, [])
+
+
 
     return <>
         {token ? <div>
@@ -132,10 +150,10 @@ export const Ui = () => {
                 <div className='companyListContainer' onClick={() => setshowList(!showList)}>company ({currentSelection.size})
                 </div>
                 {showList ? <div className="companyList">
-                    <div><input onChange={() => handleCompanyFilter("DC united")} type="checkbox" name="" id="" />DC united</div>
-                    <div><input onChange={() => handleCompanyFilter("manchaster united")} type="checkbox" name="" id="" />manchaster united</div>
-                    <div><input onChange={() => handleCompanyFilter("LA galaxy")} type="checkbox" name="" id="" />LA galaxy</div>
-                    <div><input onChange={() => handleCompanyFilter("All")} type="checkbox" name="" id="" />All</div>
+                    <div><input className='companyFilter' onChange={() => handleCompanyFilter("DC united")} type="checkbox" name="" id="" />DC united</div>
+                    <div><input className='companyFilter' onChange={() => handleCompanyFilter("manchaster united")} type="checkbox" name="" id="" />manchaster united</div>
+                    <div><input className='companyFilter' onChange={() => handleCompanyFilter("LA galaxy")} type="checkbox" name="" id="" />LA galaxy</div>
+                    <div><input className='companyFilter optionAll' onChange={() => handleCompanyFilter("All")} type="checkbox" name="" id="" />All</div>
                 </div> : null}
                 <div className='filterListContainer' onClick={() => setshowList2(!showList2)}>status
                     {showList2 ? <div className="FliterList">
