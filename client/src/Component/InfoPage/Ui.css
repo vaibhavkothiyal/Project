@@ -1,0 +1,136 @@
+.addMemberContainer{
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+    padding: 20px 10px;
+    border-bottom: 2px solid black;
+    margin-bottom: 10px;
+}
+.addMemberBtn{
+    background-color: blue;
+    border-radius: 15px;
+    padding: 5px 10px;
+    color: white;
+}
+.filterContainer{
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+    padding: 10px;
+}
+.filterContainer>div{
+    border: 1px solid black;
+    padding: 4px 10px;
+    cursor: pointer;
+}
+.FliterList{
+    position: absolute;
+    background-color: white;
+    width: 66px;
+    top: 34px;
+    right: -1px;
+    box-shadow: 4px 3px 8px 1px #969696;
+}
+.filterListContainer, .companyListContainer{
+    position: relative;
+    border-radius: 4px;
+}
+.companyList{
+    position: absolute;
+    background-color: white;
+    width: 120px;
+    top: 129px;
+    left: 10px;
+    box-shadow: 4px 3px 8px 1px #969696;
+}
+.companyList>div, .FliterList>div{
+    padding: 6px;
+}
+.addMemberBtn:hover{
+    background-color: rgb(65, 65, 247);
+    cursor: pointer;
+}
+.UiColumnParent{
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+    font-size: 18px;
+    font-weight: 600;
+}
+.UiColChild{
+    padding: 10px;
+    border-top: 1px solid black;
+}
+.UiRowParent{
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+}
+.UiRowChild{
+    padding: 10px;
+    border-top: 1px solid black;
+}
+
+.infoEditDivContainer{
+    position: absolute;
+    top: 200px;
+    left: 32%;
+    width: 600px;
+}
+.infoEditDiv{
+    box-shadow: 4px 3px 8px 1px #969696;
+    background-color: white;
+    padding: 20px;
+}
+.infoEditDiv>div{
+    margin-bottom: 10px;
+}
+
+.iconDelete{
+    color: red;
+}
+
+.saveCancelBtnContainer{
+    display: flex;
+    column-gap: 10px;
+}
+.saveCnclBtn{
+    background-color: blue;
+    border-radius: 10px;
+    padding: 4px 15px;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.cnclBtn{
+    background-color: white;
+    border-radius: 10px;
+    padding: 4px 10px;
+    color: blue;
+    border: 1px solid blue;
+    cursor: pointer;
+}
+.AddMemberCancel{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+}
+.noData{
+    width: 20%;
+    margin: 30px auto;
+    text-align: center;
+    font-weight: 700;
+    color: red;
+}
+.addMemberIcon{
+    vertical-align: middle;
+}
+.logoutBtn{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    background-color: red;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}

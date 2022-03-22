@@ -1,0 +1,5 @@
+export const ADD_USER="ADD_USER"
+export const ADD_DATA="ADD_DATA"
+export const DEL_USER="DEL_USER"
+export const HANDLE_CURRENT_SEL="HANDLE_CURRENT_SEL"
+export const ADD_TOKEN="ADD_TOKEN"
