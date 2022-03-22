@@ -15,6 +15,10 @@ Step 3 : run json server
   * json-server --watch db.json --port 3004
 
 
+# App Demo 🌟
+https://drive.google.com/file/d/1UwYf8cyLFzsfzbrIEFcHU9Zor2lkDGCd/view?usp=sharing
+
+
 # Technology Stack Used 🌟
 * React
 * Redux
